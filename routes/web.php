@@ -5,6 +5,7 @@ use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\TesteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::prefix('/clientes')->group(function(){
     Route::get('/produtos', function(){ return 'produtos'; })->name('app.produtos');
 });
 
-Route::get('/teste/{p1}{p2}', 'TesteController@teste')->name('site.rota');
+Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('site.rota');
 
 Route::fallback(function(){
     echo 'A rota informada não existe  <a href="'.route('site.sobre-nos').'">clique aqui</a>';
