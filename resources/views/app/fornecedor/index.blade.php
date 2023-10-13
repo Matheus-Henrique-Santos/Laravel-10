@@ -1,10 +1,15 @@
-<h3>Fornecedor</h3>
+<h1>Fornecedor</h1>
 
-
-@if (count($fornecedores) > 0  && count($fornecedores) < 10)
-   <h3>Existem alguns fornecedores cadastrados</h3> 
-   @elseif (count($fornecedores) > 10)
-   <h3>Existem varios fornecedores cadastrados</h3>
-   @else
-   <h3>não existem fornecedores cadastrados</h3>
+@if(empty($usuarios))
+   <h2>Não existem usuarios cadastrados</h2>
 @endif
+
+
+
+@if (isset($fornecedores) && count($fornecedores) > 0  && count($fornecedores) < 10)
+      <h2>Existem {{count($fornecedores)}} fornecedores cadastrados</h2> 
+   @else
+      <h2>Não existem fornecedores cadastrados</h2>
+@endif
+
+{{-- @unless (count($fornecedores) > 0  && count($fornecedores) < 10) @endunless //retorna apenas se for false --}} 
