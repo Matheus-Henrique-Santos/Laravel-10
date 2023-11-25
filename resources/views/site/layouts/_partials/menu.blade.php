@@ -1,7 +1,4 @@
-@extends('site.layouts.app')
-
 <div class="topo">
-
     <div class="logo">
         <img src="img/logo.png">
     </div>

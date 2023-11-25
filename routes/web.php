@@ -24,6 +24,8 @@ Route::get('/sobre-nos', [SobreNosController::class,'sobreNos'])->name('site.sob
 
 Route::get('/contato', [ContatoController::class,'contato'])->name('site.contato');
 
+Route::post('/contato', [ContatoController::class,'contato'])->name('site.contato');
+
 Route::get('/login', function(){ return 'login'; })->name('site.login');
 
 Route::prefix('/clientes')->group(function(){
