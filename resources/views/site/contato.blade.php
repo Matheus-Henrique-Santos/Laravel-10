@@ -11,7 +11,10 @@
 
     <div class="informacao-pagina">
         <div class="contato-principal">
-            
+            @component('site.layouts._components.form_contact')
+                <p> A nossa equipe retornara o mais breve possivel</p>
+                <p> Tempo médio de resposta é de 48horas</p>
+            @endcomponent
         </div>
     </div>  
 </div>
