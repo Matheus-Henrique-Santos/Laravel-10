@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('site_contatos', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('telefone');
+            $table->string('email');
+            $table->integer('motive_contact');
+            $table->text('mensage');
             $table->timestamps();
         });
     }
