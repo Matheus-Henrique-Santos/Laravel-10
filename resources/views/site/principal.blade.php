@@ -15,7 +15,7 @@
                 </div>
                 <div class="chamada">
                     <img src="img/check.png">
-                    <span class="texto-branco">Sua empresa na nuvem</span>
+                    <span class="texto-branco">Sua empresa na nuvem,</span>
                 </div>
             </div>
 
