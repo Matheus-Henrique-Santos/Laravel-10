@@ -8,6 +8,7 @@
         <div class="esquerda">
             <div class="informacoes">
                 <h1>Sistema Super Gestão MHS</h1>
+                <p style="color:#0000ff; font-family:verdana; font-size:3px;">Sistema Super Gestão MHS</p>
                 <p>Software para gestão empresarial ideal para sua empresa.<p>
                 <div class="chamada">
                     <img src="/img/check.png">
