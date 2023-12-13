@@ -10,18 +10,18 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::table('unidades', function (Blueprint $table) {
-            $table->id();
-            $table->string('unidade', 5);
-            $table->string('descricao', 30);
-            $table->timestamps();
-        });
+        {
+            Schema::table('unidades', function (Blueprint $table) {
+                $table->id();
+                $table->string('unidade', 5);
+                $table->string('descricao', 30);
+                $table->timestamps();
+            });
 
-        Schema::table('product', function(Blueprint $table) {
-            $table->unsignedBigInteger('unidade_id');
-            $table->foreignId('unidade_id')->references('id')->on('unidades');
-        });
+            Schema::table('product', function(Blueprint $table) {
+                $table->unsignedBigInteger('unidade_id');
+                $table->foreignId('unidade_id')->references('id')->on('unidades');
+            });
 
         Schema::table('product_details', function(Blueprint $table) {
             $table->unsignedBigInteger('unidade_id');
