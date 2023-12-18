@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Criar tabela 'filials'
         Schema::create('filials', function (Blueprint $table) {
             $table->id();
             $table->string('filial', 30);
             $table->timestamps();
         });
-
+    
+        // Criar tabela 'product_filials'
         Schema::create('product_filials', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('filial_id');
@@ -25,15 +27,19 @@ return new class extends Migration
             $table->integer('estoque_minimo');
             $table->integer('estoque_maximo');
             $table->timestamps();
-
+    
             $table->foreign('filial_id')->references('id')->on('filials');
+            // A referência para 'product' deve ser feita depois de criar a coluna 'price_sell'
             $table->foreign('product_id')->references('id')->on('product');
         });
-
+    
+        // Adicionar a coluna 'price_sell' à tabela 'product'
         Schema::table('product', function (Blueprint $table) {
-            $table->dropColumn('price_sell');
+            $table->decimal('price_sell');
         });
     }
+    
+
 
     /**
      * Reverse the migrations.

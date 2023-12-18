@@ -11,22 +11,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('unidades', function (Blueprint $table) {
-            $table->id();
-            $table->string('unidade', 5);
-            $table->string('descricao', 30);
-            $table->timestamps();
-        });
+        // Schema::table('unidades', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('unidade', 5);
+        //     $table->string('descricao', 30);
+        //     $table->timestamps();
+        // });
 
         Schema::table('product', function(Blueprint $table) {
-            $table->unsignedBigInteger('unidade_id');
-            $table->foreignId('unidade_id')->references('id')->on('unidades');
+            // Verifique se a coluna 'unidade_id' não existe antes de adicioná-la
+            if (!Schema::hasColumn('product', 'unidade_id')) {
+                $table->unsignedBigInteger('unidade_id');
+                $table->foreign('unidade_id')->references('id')->on('unidades');
+            }
         });
-
+        
         Schema::table('product_details', function(Blueprint $table) {
-            $table->unsignedBigInteger('unidade_id');
-            $table->foreignId('unidade_id')->references('id')->on('unidades');
+            // Verifique se a coluna 'unidade_id' não existe antes de adicioná-la
+            if (!Schema::hasColumn('product_details', 'unidade_id')) {
+                $table->unsignedBigInteger('unidade_id');
+                $table->foreign('unidade_id')->references('id')->on('unidades');
+            }
         });
+        
     }
 
     /**
