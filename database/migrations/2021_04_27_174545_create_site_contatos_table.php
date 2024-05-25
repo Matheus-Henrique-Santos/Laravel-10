@@ -4,29 +4,34 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateSiteContatosTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('site_contatos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('telefone');
-            $table->string('email');
-            $table->integer('motive_contact');
-            $table->text('mensage');
             $table->timestamps();
+            $table->string('nome', 50);
+            $table->string('telefone', 20);
+            $table->string('email', 80);
+            $table->integer('motivo_contato');
+            $table->text('mensagem');
+
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('site_contatos');
     }
-};
+}
